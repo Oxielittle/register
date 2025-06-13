@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homepage</title>
+    <script src="scrpt.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Registration Form</h1>
+    <form id="registrationForm">
+    </script>
+      <div class="form-group">
+        <label for="fullName">Full Name:</label>
+        <input
+          type="text"
+          id="fullName"
+          name="fullName"
+          placeholder="Enter your full name"
+          required
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="email">Email:</label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          placeholder="Enter your email"
+          required
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="password">Password:</label>
+        <input
+          type="password"
+          id="password"
+          name="password"
+          placeholder="Enter your password"
+          required
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="phone">Phone Number:</label>
+        <input
+          type="number"
+          id="phone"
+          name="phone"
+          placeholder="Enter your phone number"
+          required
+        />
+      </div>
+
+      <div class="form-group">
+        <label>Gender:</label>
+        <div class="radio-group">
+          <label>
+            <input type="radio" name="gender" value="Male" required /> Male
+          </label>
+          <label>
+            <input type="radio" name="gender" value="Female" required /> Female
+          </label>
+          <label>
+            <input type="radio" name="gender" value="Other" required /> Other
+          </label>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="dob">Date of Birth:</label>
+        <input type="date" id="dob" name="dob" required />
+      </div>
+
+      <div class="form-group">
+        <label for="course">Course/Program:</label>
+        <select id="course" name="course" required>
+          <option value="">Select a course/program</option>
+          <option value="Computer Science">Computer Science</option>
+          <option value="Business Administration">Business Administration</option>
+          <option value="Engineering">Engineering</option>
+          <option value="Medicine">Medicine</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label>
+          <input type="checkbox" id="terms" name="terms" required />
+          I accept the Terms and Conditions
+        </label>
+      </div>
+
+      <button type="submit">Register</button>
+    </form>
+  </div>
+
+  <script>
+    document.getElementById("registrationForm").addEventListener("submit", function(e) {
+  e.preventDefault();
+  const fullName = document.getElementById("fullName").value.trim();
+  const email = document.getElementById("email").value.trim();
+  const password = document.getElementById("password").value;
+  const phone = document.getElementById("phone").value.trim();
+  const dob = document.getElementById("dob").value;
+  const course = document.getElementById("course").value;
+
+  let gender = "";
+  const genderRadios = document.getElementsByName("gender");
+  for (let i = 0; i < genderRadios.length; i++) {
+    if (genderRadios[i].checked) {
+      gender = genderRadios[i].value;
+      break;
+    }
+  }
+
+  const termsAccepted = document.getElementById("terms").checked ? "Yes" : "No";
+
+  let message = "Registration Successfully!\n\n";
+  message += "Full Name: " + fullName + "\n";
+  message += "Email: " + email + "\n";
+  message += "Password: " + password + "\n";
+  message += "Phone Number: " + phone + "\n";
+  message += "Gender: " + gender + "\n";
+  message += "Date of Birth: " + dob + "\n";
+  message += "Course/Program: " + course + "\n";
+  message += "Accepted Terms: " + termsAccepted;
+
+  alert(message);
+
+});
+  </script>
+</body>
+</html>
